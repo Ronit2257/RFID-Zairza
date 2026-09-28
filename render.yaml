@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: zairza-attendance-api
+    runtime: docker
+    plan: free
+    rootDir: services/api
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: DATA_MODE
+        value: public-sheet
+      - key: SPREADSHEET_ID
+        value: 1KKLk-9ZVf4M08IL4Zyu7-yI3lqF2zuIupd_WpAxSo5I
+      - key: SHEET_TAB
+        value: Zairza Attendance
+      - key: EXCLUDE_TEST_ROWS
+        value: "true"
+      - key: LEADERS_JSON
+        sync: false
